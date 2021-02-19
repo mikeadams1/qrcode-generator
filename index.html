@@ -1,0 +1,111 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Portal To Solid &ndash; </title>
+  <link rel="stylesheet" href="/common/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/common/css/solid.css">
+</head>
+<body>
+
+
+
+
+<div class="container">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="/" class="navbar-brand"><H3>Solid QR Code Generator<H3/></a>
+      </div>
+      <div class="nav navbar-right navbar-form">
+        
+<img width="77" height="77"src="https://portal.solidcommunity.net/public/solid.png"align="right"></img>
+      </div>
+    </div>
+  </nav>
+
+
+<div/>
+
+<html>
+  <head>
+    <title>Solid QR Code Generator</title>
+    <style type="text/css">
+      #container {
+        width: 800px;
+        margin: auto;
+      }
+      #generator {
+        width: 350px;
+        float: left;
+        margin-right: 10px;
+      }
+      #generator fieldset {
+        border: 1px solid #DDD;
+      }
+      #generator textarea {
+        height: 50px;
+        width: 100%;
+        resize: none;
+      }
+      #result {
+        width: 350px;
+        height: 350px;
+        display: inline-block;
+        border: 1px solid #DDD;
+        margin-top: 8px;
+        position: relative;
+      }
+      #result img {
+        display: block;
+        margin: auto;
+        top: 25%;
+        left: 100px;
+        position: absolute;
+      }
+    </style>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        var $img = $('#result img');
+        var $parent = $img.parent();
+        $img.load(function() {
+          $img.css({'top':$parent.height() / 2 - $img.height() / 2, 'left':$parent.width() / 2 - $img.width() / 2}).show();
+        });
+        $('#submit').click(function() {
+          $img.attr('src', 'https://chart.googleapis.com/chart?cht=qr&' + $('#generator form').serialize());
+        });
+      });
+    </script>
+  </head>
+  <body>
+
+    <div id="container">
+      <h1>Solid QR Code Generator</h1>
+      <div id="generator">
+	<form>
+	  <fieldset>
+            <legend>Size:</legend>
+            <input type="radio" name="chs" value="150x150" checked>150x150<br>
+            <input type="radio" name="chs" value="200x200">200x200<br>
+            <input type="radio" name="chs" value="250x250">250x250<br>
+            <input type="radio" name="chs" value="300x300">300x300<br>
+	  </fieldset>
+	  <fieldset>
+            <legend>Content:</legend>
+            <textarea name="chl"></textarea>
+	  </fieldset>
+	  <input id="submit" type="button" value="Generate"></input>
+	</form>
+      </div>
+      <div id="result"><img style="display:none;" /></div>
+    </div>
+
+  </body>
+</html>
+
+
+
+
+
